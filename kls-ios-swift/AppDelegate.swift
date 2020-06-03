@@ -7,14 +7,37 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    var kollusStorage : KollusStorage?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if kollusStorage == nil {
+            kollusStorage = KollusStorage()
+            kollusStorage?.applicationKey = ""
+            kollusStorage?.applicationBundleID = ""
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+            kollusStorage?.applicationExpireDate = dateFormatter.date(from: "")
+            kollusStorage?.serverPort =0
+            
+            do {
+                try kollusStorage?.start()
+            } catch {
+                print("Storage Start Err: ", error.localizedDescription)
+            }
+        }
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            // 오디오 세션 카테고리, 모드, 옵션을 설정합니다.
+            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to set audio session category.")
+        }
         return true
     }
 

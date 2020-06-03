@@ -7,15 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B731A3E30F1CC02265CA3A05 /* PlayControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = B731AE1BF6F12873B8AF512C /* PlayControl.xib */; };
+		B731A6204DE106323D38DB14 /* PlayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731AFA67F5463C9DE443A33 /* PlayControl.swift */; };
 		DB8F9BB5246CBFF8006C6792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BB4246CBFF8006C6792 /* AppDelegate.swift */; };
 		DB8F9BB7246CBFF8006C6792 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BB6246CBFF8006C6792 /* SceneDelegate.swift */; };
 		DB8F9BB9246CBFF8006C6792 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BB8246CBFF8006C6792 /* ViewController.swift */; };
 		DB8F9BBC246CBFF8006C6792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBA246CBFF8006C6792 /* Main.storyboard */; };
 		DB8F9BBE246CBFFC006C6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBD246CBFFC006C6792 /* Assets.xcassets */; };
 		DB8F9BC1246CBFFC006C6792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBF246CBFFC006C6792 /* LaunchScreen.storyboard */; };
+		DB8F9BCE246CC2BB006C6792 /* LivePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */; };
+		DB8F9BD0246CC2D5006C6792 /* LivePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */; };
+		DB8F9BD3246CC412006C6792 /* Topbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BD2246CC412006C6792 /* Topbar.swift */; };
+		DB8F9BD5246CC427006C6792 /* Topbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BD4246CC427006C6792 /* Topbar.xib */; };
+		DB8F9BD7246CF282006C6792 /* AbstractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BD6246CF282006C6792 /* AbstractView.swift */; };
+		DB8F9BD9246CF29F006C6792 /* AbstractView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BD8246CF29F006C6792 /* AbstractView.xib */; };
+		DB8F9BDB246D06C6006C6792 /* LiveControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BDA246D06C6006C6792 /* LiveControl.swift */; };
+		DB8F9BDD246D06D2006C6792 /* LiveControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BDC246D06D2006C6792 /* LiveControl.xib */; };
+		DB8F9BDF246D13F9006C6792 /* LivePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */; };
+		DB8F9BE1246D2A9C006C6792 /* UrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BE0246D2A9C006C6792 /* UrlView.swift */; };
+		DB8F9BE3246D2ABA006C6792 /* UrlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BE2246D2ABA006C6792 /* UrlView.xib */; };
+		DBE104F3246F88D1001E519B /* CustomSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE104F2246F88D1001E519B /* CustomSlider.xib */; };
+		DBEE875E247DFA8200F5526F /* AodPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEE875D247DFA8200F5526F /* AodPlayer.xib */; };
+		DBEE8760247DFAA000F5526F /* AodPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE875F247DFAA000F5526F /* AodPlayer.swift */; };
+		DBEE8762247DFC2B00F5526F /* AodPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */; };
+		DBEE8769247E876300F5526F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8768247E876300F5526F /* libsqlite3.0.tbd */; };
+		DBEE876B247E877000F5526F /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE876A247E877000F5526F /* libiconv.tbd */; };
+		DBEE876D247E877800F5526F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE876C247E877800F5526F /* CoreMedia.framework */; };
+		DBEE876F247E878000F5526F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE876E247E878000F5526F /* AVFoundation.framework */; };
+		DBEE8771247E878900F5526F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8770247E878900F5526F /* QuartzCore.framework */; };
+		DBEE8773247E879100F5526F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8772247E879100F5526F /* AudioToolbox.framework */; };
+		DBEE8775247E879F00F5526F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8774247E879F00F5526F /* OpenGLES.framework */; };
+		DBEE8777247E87A800F5526F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8776247E87A800F5526F /* Security.framework */; };
+		DBEE8779247E87B100F5526F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8778247E87B100F5526F /* SystemConfiguration.framework */; };
+		DBEE877B247E87BC00F5526F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE877A247E87BC00F5526F /* MediaPlayer.framework */; };
+		DBEE877D247E87CA00F5526F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE877C247E87CA00F5526F /* CoreGraphics.framework */; };
+		DBEE877F247E87D200F5526F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE877E247E87D200F5526F /* UIKit.framework */; };
+		DBEE8781247E87DA00F5526F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8780247E87DA00F5526F /* Foundation.framework */; };
+		DBEE8783247E87EC00F5526F /* libKollusSDK_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8782247E87EC00F5526F /* libKollusSDK_debug.a */; };
+		DBF6B78A246DA24C00F5A9E6 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B731AB807F085487958C72BC /* kls-ios-swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "kls-ios-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		B731AE1BF6F12873B8AF512C /* PlayControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayControl.xib; sourceTree = "<group>"; };
+		B731AFA67F5463C9DE443A33 /* PlayControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayControl.swift; sourceTree = "<group>"; };
 		DB8F9BB1246CBFF8006C6792 /* kls-ios-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kls-ios-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8F9BB4246CBFF8006C6792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB8F9BB6246CBFF8006C6792 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +59,36 @@
 		DB8F9BBD246CBFFC006C6792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB8F9BC0246CBFFC006C6792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB8F9BC2246CBFFC006C6792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayer.swift; sourceTree = "<group>"; };
+		DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LivePlayer.xib; sourceTree = "<group>"; };
+		DB8F9BD2246CC412006C6792 /* Topbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topbar.swift; sourceTree = "<group>"; };
+		DB8F9BD4246CC427006C6792 /* Topbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Topbar.xib; sourceTree = "<group>"; };
+		DB8F9BD6246CF282006C6792 /* AbstractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractView.swift; sourceTree = "<group>"; };
+		DB8F9BD8246CF29F006C6792 /* AbstractView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AbstractView.xib; sourceTree = "<group>"; };
+		DB8F9BDA246D06C6006C6792 /* LiveControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveControl.swift; sourceTree = "<group>"; };
+		DB8F9BDC246D06D2006C6792 /* LiveControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveControl.xib; sourceTree = "<group>"; };
+		DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayerController.swift; sourceTree = "<group>"; };
+		DB8F9BE0246D2A9C006C6792 /* UrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlView.swift; sourceTree = "<group>"; };
+		DB8F9BE2246D2ABA006C6792 /* UrlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlView.xib; sourceTree = "<group>"; };
+		DBE104F2246F88D1001E519B /* CustomSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSlider.xib; sourceTree = "<group>"; };
+		DBEE875D247DFA8200F5526F /* AodPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AodPlayer.xib; sourceTree = "<group>"; };
+		DBEE875F247DFAA000F5526F /* AodPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AodPlayer.swift; sourceTree = "<group>"; };
+		DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AodPlayerController.swift; sourceTree = "<group>"; };
+		DBEE8768247E876300F5526F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		DBEE876A247E877000F5526F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		DBEE876C247E877800F5526F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		DBEE876E247E878000F5526F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DBEE8770247E878900F5526F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DBEE8772247E879100F5526F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DBEE8774247E879F00F5526F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DBEE8776247E87A800F5526F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DBEE8778247E87B100F5526F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DBEE877A247E87BC00F5526F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		DBEE877C247E87CA00F5526F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DBEE877E247E87D200F5526F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DBEE8780247E87DA00F5526F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DBEE8782247E87EC00F5526F /* libKollusSDK_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKollusSDK_debug.a; path = ExternalLib/KollusSDK/lib/libKollusSDK_debug.a; sourceTree = "<group>"; };
+		DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +96,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEE8783247E87EC00F5526F /* libKollusSDK_debug.a in Frameworks */,
+				DBEE8781247E87DA00F5526F /* Foundation.framework in Frameworks */,
+				DBEE877F247E87D200F5526F /* UIKit.framework in Frameworks */,
+				DBEE877D247E87CA00F5526F /* CoreGraphics.framework in Frameworks */,
+				DBEE877B247E87BC00F5526F /* MediaPlayer.framework in Frameworks */,
+				DBEE8779247E87B100F5526F /* SystemConfiguration.framework in Frameworks */,
+				DBEE8777247E87A800F5526F /* Security.framework in Frameworks */,
+				DBEE8775247E879F00F5526F /* OpenGLES.framework in Frameworks */,
+				DBEE8773247E879100F5526F /* AudioToolbox.framework in Frameworks */,
+				DBEE8771247E878900F5526F /* QuartzCore.framework in Frameworks */,
+				DBEE876F247E878000F5526F /* AVFoundation.framework in Frameworks */,
+				DBEE876D247E877800F5526F /* CoreMedia.framework in Frameworks */,
+				DBEE876B247E877000F5526F /* libiconv.tbd in Frameworks */,
+				DBEE8769247E876300F5526F /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +121,8 @@
 			children = (
 				DB8F9BB3246CBFF8006C6792 /* kls-ios-swift */,
 				DB8F9BB2246CBFF8006C6792 /* Products */,
+				B731AB807F085487958C72BC /* kls-ios-swift-Bridging-Header.h */,
+				DBEE8767247E876300F5526F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +137,11 @@
 		DB8F9BB3246CBFF8006C6792 /* kls-ios-swift */ = {
 			isa = PBXGroup;
 			children = (
+				DBEE875C247DFA4D00F5526F /* Aod */,
+				DB8F9BD1246CC3D9006C6792 /* Comm */,
+				DB8F9BCA246CC061006C6792 /* MultiDrm */,
+				DB8F9BC9246CC048006C6792 /* Live */,
+				DB8F9BC8246CC027006C6792 /* Vod */,
 				DB8F9BB4246CBFF8006C6792 /* AppDelegate.swift */,
 				DB8F9BB6246CBFF8006C6792 /* SceneDelegate.swift */,
 				DB8F9BB8246CBFF8006C6792 /* ViewController.swift */,
@@ -65,6 +151,80 @@
 				DB8F9BC2246CBFFC006C6792 /* Info.plist */,
 			);
 			path = "kls-ios-swift";
+			sourceTree = "<group>";
+		};
+		DB8F9BC8246CC027006C6792 /* Vod */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vod;
+			sourceTree = "<group>";
+		};
+		DB8F9BC9246CC048006C6792 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */,
+				DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */,
+				DB8F9BDA246D06C6006C6792 /* LiveControl.swift */,
+				DB8F9BDC246D06D2006C6792 /* LiveControl.xib */,
+				DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		DB8F9BCA246CC061006C6792 /* MultiDrm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MultiDrm;
+			sourceTree = "<group>";
+		};
+		DB8F9BD1246CC3D9006C6792 /* Comm */ = {
+			isa = PBXGroup;
+			children = (
+				DB8F9BD2246CC412006C6792 /* Topbar.swift */,
+				DB8F9BD4246CC427006C6792 /* Topbar.xib */,
+				DB8F9BD6246CF282006C6792 /* AbstractView.swift */,
+				DB8F9BD8246CF29F006C6792 /* AbstractView.xib */,
+				DB8F9BE0246D2A9C006C6792 /* UrlView.swift */,
+				DB8F9BE2246D2ABA006C6792 /* UrlView.xib */,
+				DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */,
+				DBE104F2246F88D1001E519B /* CustomSlider.xib */,
+				B731AE1BF6F12873B8AF512C /* PlayControl.xib */,
+				B731AFA67F5463C9DE443A33 /* PlayControl.swift */,
+			);
+			path = Comm;
+			sourceTree = "<group>";
+		};
+		DBEE875C247DFA4D00F5526F /* Aod */ = {
+			isa = PBXGroup;
+			children = (
+				DBEE875D247DFA8200F5526F /* AodPlayer.xib */,
+				DBEE875F247DFAA000F5526F /* AodPlayer.swift */,
+				DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */,
+			);
+			path = Aod;
+			sourceTree = "<group>";
+		};
+		DBEE8767247E876300F5526F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBEE8782247E87EC00F5526F /* libKollusSDK_debug.a */,
+				DBEE8780247E87DA00F5526F /* Foundation.framework */,
+				DBEE877E247E87D200F5526F /* UIKit.framework */,
+				DBEE877C247E87CA00F5526F /* CoreGraphics.framework */,
+				DBEE877A247E87BC00F5526F /* MediaPlayer.framework */,
+				DBEE8778247E87B100F5526F /* SystemConfiguration.framework */,
+				DBEE8776247E87A800F5526F /* Security.framework */,
+				DBEE8774247E879F00F5526F /* OpenGLES.framework */,
+				DBEE8772247E879100F5526F /* AudioToolbox.framework */,
+				DBEE8770247E878900F5526F /* QuartzCore.framework */,
+				DBEE876E247E878000F5526F /* AVFoundation.framework */,
+				DBEE876C247E877800F5526F /* CoreMedia.framework */,
+				DBEE876A247E877000F5526F /* libiconv.tbd */,
+				DBEE8768247E876300F5526F /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +285,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8F9BD0246CC2D5006C6792 /* LivePlayer.xib in Resources */,
 				DB8F9BC1246CBFFC006C6792 /* LaunchScreen.storyboard in Resources */,
+				DB8F9BE3246D2ABA006C6792 /* UrlView.xib in Resources */,
+				DB8F9BD9246CF29F006C6792 /* AbstractView.xib in Resources */,
 				DB8F9BBE246CBFFC006C6792 /* Assets.xcassets in Resources */,
+				DBE104F3246F88D1001E519B /* CustomSlider.xib in Resources */,
+				DB8F9BD5246CC427006C6792 /* Topbar.xib in Resources */,
 				DB8F9BBC246CBFF8006C6792 /* Main.storyboard in Resources */,
+				DB8F9BDD246D06D2006C6792 /* LiveControl.xib in Resources */,
+				DBEE875E247DFA8200F5526F /* AodPlayer.xib in Resources */,
+				B731A3E30F1CC02265CA3A05 /* PlayControl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +306,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8F9BCE246CC2BB006C6792 /* LivePlayer.swift in Sources */,
+				DBF6B78A246DA24C00F5A9E6 /* CustomSlider.swift in Sources */,
 				DB8F9BB9246CBFF8006C6792 /* ViewController.swift in Sources */,
+				DB8F9BD7246CF282006C6792 /* AbstractView.swift in Sources */,
+				DBEE8760247DFAA000F5526F /* AodPlayer.swift in Sources */,
 				DB8F9BB5246CBFF8006C6792 /* AppDelegate.swift in Sources */,
+				DBEE8762247DFC2B00F5526F /* AodPlayerController.swift in Sources */,
 				DB8F9BB7246CBFF8006C6792 /* SceneDelegate.swift in Sources */,
+				DB8F9BDB246D06C6006C6792 /* LiveControl.swift in Sources */,
+				DB8F9BE1246D2A9C006C6792 /* UrlView.swift in Sources */,
+				DB8F9BDF246D13F9006C6792 /* LivePlayerController.swift in Sources */,
+				DB8F9BD3246CC412006C6792 /* Topbar.swift in Sources */,
+				B731A6204DE106323D38DB14 /* PlayControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +464,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D87JZ6F857;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "/Users/hdyang/Develop/kls-ios-swift/ExternalLib/KollusSDK/include/KollusSDK";
 				INFOPLIST_FILE = "kls-ios-swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hyeond.kls-ios-swift";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/hdyang/Develop/kls-ios-swift/ExternalLib/KollusSDK/lib",
+					"$(PROJECT_DIR)/ExternalLib/KollusSDK/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-lz",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devugfactory.haeming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,13 +493,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D87JZ6F857;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "/Users/hdyang/Develop/kls-ios-swift/ExternalLib/KollusSDK/include/KollusSDK";
 				INFOPLIST_FILE = "kls-ios-swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hyeond.kls-ios-swift";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/hdyang/Develop/kls-ios-swift/ExternalLib/KollusSDK/lib",
+					"$(PROJECT_DIR)/ExternalLib/KollusSDK/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-lz",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devugfactory.haeming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
