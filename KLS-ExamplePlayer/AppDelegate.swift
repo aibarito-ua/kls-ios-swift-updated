@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
             kollusStorage?.applicationExpireDate = dateFormatter.date(from: "")
-            kollusStorage?.serverPort =0
+            kollusStorage?.serverPort = 0
             
             do {
                 try kollusStorage?.start()

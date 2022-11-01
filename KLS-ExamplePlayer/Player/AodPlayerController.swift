@@ -32,7 +32,7 @@ class AodPlayerController: UIViewController, PlayerDelegate {
     let topbar: Topbar = Topbar()
     let aodControl: PlayControl = PlayControl()
     let urlView: UrlView = UrlView()
-    let player: AodPlayer = AodPlayer()
+    let player: ExamplePlayer = ExamplePlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()

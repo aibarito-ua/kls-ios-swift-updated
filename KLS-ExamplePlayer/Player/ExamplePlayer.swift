@@ -18,9 +18,14 @@ protocol PlayerDelegate {
 }
 
 
-class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, KollusPlayerLMSDelegate, KollusPlayerBookmarkDelegate {
+class ExamplePlayer: AbstractView {
 
 
+    var playUrl: String?
+    private var isPrepared: Bool = false
+    public var isPlaying: Bool = false
+    var playerDelegate: PlayerDelegate?
+    
     public var posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "music.note")
@@ -38,14 +43,12 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
         player.translatesAutoresizingMaskIntoConstraints = false
         return player
     }()
-    var playUrl: String?
+    
     private let kollusStorage: KollusStorage? = {
         let appDeletgate = UIApplication.shared.delegate as! AppDelegate
         return appDeletgate.kollusStorage
     }()
-    private var isPrepared: Bool = false
-    public var isPlaying: Bool = false
-    var playerDelegate: PlayerDelegate?
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,6 +78,7 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
             player.debug = true
             return player
         }()
+        
         self.addSubview(kollusPlayer)
         kollusPlayer.delegate = self
         kollusPlayer.drmDelegate = self
@@ -160,7 +164,6 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
         }
         return false
     }
-
     func decreasePlaybackRate() -> Float {
         if isPrepared && isPlaying {
             let playbackRate: Float = kollusPlayer.currentPlaybackRate
@@ -199,36 +202,6 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
             self.playAndPause()
             return .success
         }
-        //play 리스트로 구성할때 사용
-//        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
-//            print("Pause command - is playing: \(self.player.isPlaying)")
-//            if self.player.isPlaying {
-//                self.pause()
-//            }
-//            if self.isPlayList == true {
-//                self.releasePlayer()
-//                self.initPlayer()
-//                self.currentMedia = self.currentMedia - 1 <= -1 ? self.playUrlList.count - 1 : self.currentMedia - 1
-//                self.loadContent(targetContent: self.currentMedia)
-//                return .success
-//            }
-//            return .commandFailed
-//        }
-//        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
-//            print("Pause command - is playing: \(self.player.isPlaying)")
-//            if self.player.isPlaying {
-//                self.pause()
-//                return .success
-//            }
-//            if self.isPlayList == true {
-//                self.releasePlayer()
-//                self.initPlayer()
-//                self.currentMedia = self.currentMedia + 1 >= self.playUrlList.count ? 0 : self.currentMedia + 1
-//                self.loadContent(targetContent: self.currentMedia)
-//                return .success
-//            }
-//            return .commandFailed
-//        }
         commandCenter.changePlaybackPositionCommand.addTarget(self, action: #selector(onChangePlaybackPositionCommand))
     }
 
@@ -251,7 +224,7 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
             let posterUrl: URL = try URL(fileURLWithPath: kollusPlayer.content.snapshot)
             let posterData = try Data(contentsOf: posterUrl)
 
-            if let image: UIImage = UIImage(data: posterData)! {
+            if let image: UIImage = UIImage(data: posterData) {
                 nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
                     return image
                 }
@@ -268,8 +241,6 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
         }
 
     }
-
-
     func updateNowPlaying(isPause: Bool) {
         // Define Now Playing Info
         var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
@@ -280,142 +251,17 @@ class AodPlayer: AbstractView, KollusPlayerDelegate, KollusPlayerDRMDelegate, Ko
         // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
-
     var timer: Timer?
-
     func runTimer() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
             self.playerDelegate?.progress(position: self.kollusPlayer.currentPlaybackTime, duration: self.kollusPlayer.content.duration)
         })
     }
-
     func stopTimer() {
         self.timer?.invalidate()
         self.timer = nil
     }
 
 
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, prepareToPlayWithError error: Error!) {
-        self.indicator.stopAnimating()
-        if error != nil {
-            print("Prepare Error: ", error.debugDescription)
-        } else {
-            do {
-                self.isPrepared = true
-                print(kollusPlayer.content.thumbnail)
-                let posterUrl: URL = try URL(fileURLWithPath: kollusPlayerView.content.snapshot)
-                let posterData = try Data(contentsOf: posterUrl)
-                let posterImage: UIImage = UIImage(data: posterData)!
-                self.posterImageView.image = posterImage
-            } catch {
-                print("포스터 이미지를 불러 올수 없습니다.")
-            }
-            self.setupNowPlaying(title: kollusPlayerView.content.title)
-            self.setupRemoteTransportControls()
-            playerDelegate?.prepared(title: kollusPlayerView.content.title, duration: kollusPlayerView.content.duration)
-        }
-    }
-
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, play userInteraction: Bool, error: Error!) {
-        self.isPlaying = true
-        runTimer()
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, pause userInteraction: Bool, error: Error!) {
-        self.isPlaying = false
-        let state = UIApplication.shared.applicationState
-        if (state == .background || state == .inactive) && !userInteraction {
-            self.playAndPause()
-        }
-        stopTimer()
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, buffering: Bool, error: Error!) {
-        if buffering {
-            self.indicator.startAnimating()
-        }
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, stop userInteraction: Bool, error: Error!) {
-        self.isPlaying = false
-        self.isPrepared = false
-        self.releasePlayer()
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, position: TimeInterval, error: Error!) {
-        print("Progress Event Raise", position)
-        playerDelegate?.progress(position: position, duration: kollusPlayerView.content.duration)
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, scroll distance: CGPoint, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, zoom recognizer: UIPinchGestureRecognizer!, error: NSErrorPointer) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, naturalSize: CGSize) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, playerContentMode: KollusPlayerContentMode, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, playerContentFrame contentFrame: CGRect, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, playbackRate: Float, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, repeat: Bool, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, enabledOutput: Bool, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, unknownError error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, framerate: Int32) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, lockedPlayer playerType: KollusPlayerType) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, charset: UnsafeMutablePointer<Int8>!, caption: UnsafeMutablePointer<Int8>!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, thumbnail isThumbnail: Bool, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, mck: String!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, request: [AnyHashable: Any]!, json: [AnyHashable: Any]!, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, json: [AnyHashable: Any]!, error: Error!) {
-
-    }
-
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, bookmark bookmarks: [Any]!, enabled: Bool, error: Error!) {
-
-    }
-
-
+    
 }
