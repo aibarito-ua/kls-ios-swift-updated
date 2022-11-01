@@ -26,8 +26,10 @@ class AbstractView: UIView {
         }
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
+        view.backgroundColor = .clear
         self.addSubview(view)
     }
+    
 
 }
 extension NSObject {

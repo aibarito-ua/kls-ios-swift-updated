@@ -52,5 +52,193 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D49E50D9-DDE3-46FD-B13E-7E2A6932EB31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "init(frame:contentURL:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49913647-CDBC-47F4-B179-51C0C424C97E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/Extension/PlayerDelegateExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "kollusPlayerView(_:pause:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E43237E-9B06-41CD-99AE-AC45CAFBCA79"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/Extension/PlayerDelegateExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "kollusPlayerView(_:pause:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "ExamplePlayer"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - f8dc875662c9c2c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer._duration.getter : Swift.Double"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - 7a25a26eeba2f2dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer._duration.setter : Swift.Double"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - bac058bee8da96cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer._duration.modify : Swift.Double"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - 83a7065d709f0646"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer._duration.modify : Swift.Double with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - 961a4842c82b9f9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer.init(frame: __C.CGRect, contentURL: Swift.Optional&lt;Swift.String&gt;) -&gt; KLS_ExamplePlayer.ExamplePlayer"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "396">
+               </Location>
+               <Location
+                  uuid = "F81A0D0A-59E5-454E-92C0-1297BCEED2A1 - c7b99af93719bb22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KLS_ExamplePlayer.ExamplePlayer.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;KLS_ExamplePlayer.ExamplePlayer&gt;"
+                  moduleName = "KLS-ExamplePlayer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer/Player/ExamplePlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "469AA4CD-0067-40DA-AEBE-A9530CE73615"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/Extension/BackgroundPlayExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "setupRemoteTransportControls()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CECB5849-9B46-4455-B58E-DBB0832D60EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KLS-ExamplePlayer/Player/Extension/BackgroundPlayExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "setupRemoteTransportControls()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

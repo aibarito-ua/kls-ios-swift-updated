@@ -6,12 +6,14 @@
 //  Copyright (c) 2014년 Catenoid. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "KollusSDK.h"
 #import "KollusPlayerDelegate.h"
 #import "KollusPlayerDRMDelegate.h"
 #import "KollusPlayerLMSDelegate.h"
 #import "KollusPlayerBookmarkDelegate.h"
 #import "KPSection.h"
+#import "KollusChat.h"
 
 @class KollusContent;
 @class KollusStorage;
@@ -103,6 +105,8 @@
 /// 주어진 n초까지 또는 현재 재생 초까지 Seek 할 수 있음. seekable이 false일 때만 적용
 /// -1 : seek 할 수 없음
 @property (nonatomic, unsafe_unretained, readonly) NSInteger nSeekableEnd;
+/// Partner portal 설정 값 : 자막 스타일 "bg" : 자막 배경 적용, "bg"가 아니면 사용자 설정
+@property (nonatomic, copy, readonly) NSString *strCaptionStyle;
 /// 강제 이어보기
 @property (nonatomic, unsafe_unretained, readonly) BOOL forceNScreen;
 /// 썸네일 사용 여부
@@ -136,6 +140,11 @@
 @property (nonatomic, unsafe_unretained, readonly) NSInteger nVideoWaterMarkHideTime;
 /// 동적 drm 파라메터
 @property (nonatomic, copy) NSString *extraDrmParam;
+/// HLS ABR Information
+@property (nonatomic, readonly) NSMutableArray *streamInfoList;
+
+/// 라이브 채팅
+@property (nonatomic) KollusChat *kollusChat;
 
 /**
  컨텐트URL을 사용하여 플레이어를 생성
@@ -264,6 +273,11 @@
 - (BOOL) setSkipPlay;
 
 /**
+ HLS 재생중 bandwidth 변경
+ */
+- (void) changeBandWidth:(int)bandWidth;
+
+/**
  자막파일 선택
  @param path 사용할 자막파일 경로
  @return bool true:성공 false:실패
@@ -284,6 +298,13 @@
  @return CGFloat 출력화면 확대/축소 비율 값
  */
 - (CGFloat)getZoomValue;
+
+/**
+ Foreground 상태로 변경시 Player 재생상태를 Pause로 유지하기 위한 API
+ @param NO(default): 포그라운드 진입시 자동재생(기존과 동일)
+ @param YES: 포그라운드 진입시 pause 상태로 유지됨. APP에서 필요한 경우 Play 처리 필요
+ */
+- (void)setPauseOnForeground:(BOOL)bPause;
 
 
 @end

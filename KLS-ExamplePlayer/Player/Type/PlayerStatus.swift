@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum PlayerStatus {
+    case NotPrepared
+    case Prepared
+    case Playing
+    case Paused
+    case Buffering
+    case Seeking
+    case Stop
+}

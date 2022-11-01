@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB8F9BB0246CBFF8006C6792"
-               BuildableName = "kls-ios-swift.app"
-               BlueprintName = "kls-ios-swift"
-               ReferencedContainer = "container:kls-ios-swift.xcodeproj">
+               BuildableName = "KLS-ExamplePlayer.app"
+               BlueprintName = "KLS-ExamplePlayer"
+               ReferencedContainer = "container:KLS-ExamplePlayer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB8F9BB0246CBFF8006C6792"
-            BuildableName = "kls-ios-swift.app"
-            BlueprintName = "kls-ios-swift"
-            ReferencedContainer = "container:kls-ios-swift.xcodeproj">
+            BuildableName = "KLS-ExamplePlayer.app"
+            BlueprintName = "KLS-ExamplePlayer"
+            ReferencedContainer = "container:KLS-ExamplePlayer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB8F9BB0246CBFF8006C6792"
-            BuildableName = "kls-ios-swift.app"
-            BlueprintName = "kls-ios-swift"
-            ReferencedContainer = "container:kls-ios-swift.xcodeproj">
+            BuildableName = "KLS-ExamplePlayer.app"
+            BlueprintName = "KLS-ExamplePlayer"
+            ReferencedContainer = "container:KLS-ExamplePlayer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -15,8 +15,8 @@ typedef NS_ENUM(NSInteger, KollusPlayerType) {
     PlayerTypeKollus = 0,
     /// Native player 사용
     PlayerTypeNative,
-    /// Native Live player 사용
-    PlayerTypeLive
+    /// HLS player 사용
+    PlayerTypeHLS
 };
 
 /// 컨텐트 타입
@@ -26,7 +26,11 @@ typedef NS_ENUM(NSInteger, KollusContentType) {
     /// 다운로드 컨텐트
     KollusContentTypeDownloading,
     // 샘플 컨텐트 (do not use)
-    KollusContentTypeSample
+    KollusContentTypeSample,
+    // HLS 스트리밍
+    KollusContentTypeAdaptiveStreaming,
+    // HLS 다운로드
+    KollusContentTypeAdaptiveDownload
 };
 
 /// 플레이어 화면 출력 모드

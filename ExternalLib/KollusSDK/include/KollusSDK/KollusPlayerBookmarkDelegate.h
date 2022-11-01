@@ -8,6 +8,7 @@
 
 #import "KollusSDK.h"
 
+@class KollusPlayerView;
 @class KollusBookmark;
 
 @protocol KollusPlayerBookmarkDelegate <NSObject>

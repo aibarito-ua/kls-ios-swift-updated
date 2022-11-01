@@ -7,7 +7,7 @@
 //
 
 @class KollusPlayerView;
-@class KollusCaption;
+//@class KollusCaption;
 
 @protocol KollusPlayerDelegate <NSObject>
 
@@ -42,10 +42,12 @@
  @param kollusPlayerView KollusPlayerView 아이디
  @param buffering YES 버퍼링 시작
  @param buffering NO 버퍼링 완료
- @param error 에러상세
+ @param prepared NO 재생 준비전
+ @param prepared YES 재생 준비후
+@param error 에러상세
  @remark buffering 값이 YES로 변경되기 전에 시스템에 의한 일시정지 델리게이트가 호출된 경우 buffering 값이 NO로 변경된 경우에 UI에서 PlayWithError: 메서드 호출이 필요함.
  */
-- (void)kollusPlayerView:(KollusPlayerView *)kollusPlayerView buffering:(BOOL)buffering error:(NSError *)error;
+- (void)kollusPlayerView:(KollusPlayerView *)kollusPlayerView buffering:(BOOL)buffering prepared:(BOOL)prepared error:(NSError *)error;
 
 /**
  재생이 정지된 경우에 전송
@@ -189,5 +191,9 @@
 @param 미디어 컨텐츠 키
 */
 - (void)kollusPlayerView:(KollusPlayerView *)kollusPlayerView mck:(NSString *)mck;
+
+// HLS 컨텐츠 화질 전송
+- (void)kollusPlayerView:(KollusPlayerView *)view height:(int)height;
+
 
 @end

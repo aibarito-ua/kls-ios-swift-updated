@@ -37,4 +37,20 @@
  */
 - (void)kollusStorage:(KollusStorage *)kollusStorage cur:(int)cur count:(int)count error:(NSError *)error;
 
+
+/**
+ LMS Callback 처리후 호출
+ @param KollusStorage KollusStorage 아이디
+ @param lmsData  lms data 정보
+ @param lmsResult  lms result 정보
+ */
+- (void)kollusStorage:(KollusStorage *)kollusStorage lmsData:(NSString *)lmsData resultJson:(NSDictionary *)resultJson;
+
+/**
+ 미전송 LMS Callback 완료후 호출
+ @param successCount  lms 전송 성공 횟수
+ @param failCount  lms 전송 실패 횟수
+ */
+- (void)onSendCompleteStoredLms:(int)successCount failCount:(int)failCount;
+
 @end

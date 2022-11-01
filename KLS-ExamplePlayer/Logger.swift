@@ -7,3 +7,12 @@
 //
 
 import Foundation
+/**
+ NSLOG Global Function
+ **/
+//public func NSLog(_ format:String, _ args: CVarArg...) {
+//    #if DEBUG
+//    let logMessage = String(format: format, arguments: args)
+//    Foundation.NSLog(logMessage)
+//    #endif
+//}

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:kls-ios-swift.xcodeproj">
+      location = "self:/Users/HyeonD/GoHomeDaddy/01.CatenoidJob/kls-ios-swift/KLS-ExamplePlayer.xcodeproj">
    </FileRef>
 </Workspace>

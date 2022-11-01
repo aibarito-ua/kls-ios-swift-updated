@@ -5,7 +5,7 @@
 //  Created by Franky.Jung on 2014. 11. 28..
 //  Copyright (c) 2014년 Catenoid. All rights reserved.
 //
-
+#import <AVKit/AVKit.h>
 #import "KollusSDK.h"
 #import "KollusStorageDelegate.h"
 
@@ -33,8 +33,6 @@
 @property (nonatomic, unsafe_unretained, readonly) long long storageSize;
 /// 캐시데이터 총 사이즈(bytes)
 @property (nonatomic, unsafe_unretained, readonly) long long cacheDataSize;
-/// 다운로드 컨텐츠 정보 배열
-@property (nonatomic, readonly) NSMutableArray *contents;
 
 /// Hybrid App에서 사용되는 port 번호
 @property (nonatomic) NSInteger serverPort;
@@ -42,6 +40,10 @@
 /// 동적 drm 파라메터
 @property (nonatomic, copy) NSString *extraDrmParam;
 
+/// UserAgent
+@property (nonatomic, copy, readonly) NSString *appUserAgent;
+/// 디바이스 Type(kp-mobile, kp-tablet)
+@property (nonatomic, copy, readonly) NSString *deviceType;
 
 
 /**
@@ -121,15 +123,27 @@
  */
 - (void)updateDownloadDRMInfo:(BOOL)bAll;
 
-/**
- 스토리지 컨텐츠 백그라운드 다운로드 여부
- */
-- (void)setBackgroundDownload:(BOOL)bBackground;
 
 /**
  스토리지 캐쉬 사이즈 설정
  @param cacheSizeMB 스트리밍 컨텐츠 캐쉬 사이즈(Mega Bytes)
  */
 - (void)setCacheSize:(NSInteger)cacheSizeMB;
+
+/**
+ 스토리지 컨텐츠 백그라운드 다운로드 여부
+  */
+- (void)setBackgroundDownload:(BOOL)bBackground;
+
+/**
+ 다운로드 컨텐츠 정보 배열
+ */
+- (NSMutableArray*)contents;
+
+/**
+ 미전송된 LMS data 전송
+ */
+- (void)sendStoredLms;
+
 
 @end

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+enum ExamplePlayerError : Error {
+    case NotPreparedError
+    case AlreadyPrepared
+    case NotAllowChangeContentURL
+}

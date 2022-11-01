@@ -108,14 +108,7 @@ class AodPlayerController: UIViewController, PlayerDelegate {
         topbar.castButton.addTarget(self, action: #selector(pressedCastButton), for: .touchUpInside)
         topbar.sizeButton.addTarget(self, action: #selector(pressedSizeButton), for: .touchUpInside)
 
-        aodControl.playButton.addTarget(self, action: #selector(pressedPlayButton), for: .touchUpInside)
-        aodControl.muteButton.addTarget(self, action: #selector(pressedMuteButton), for: .touchUpInside)
-        aodControl.volumeSlider.addTarget(self, action: #selector(valueChangedVolumeSlider), for: .valueChanged)
-        aodControl.progressSlider.addTarget(self, action: #selector(valueChangedProgressSlider), for: .valueChanged)
-        aodControl.prevStepButton.addTarget(self, action: #selector(pressedPrevStepButton), for: .touchUpInside)
-        aodControl.nextStepButton.addTarget(self, action: #selector(pressedNextStepButton), for: .touchUpInside)
-        aodControl.reducePlayRateButton.addTarget(self, action: #selector(pressedReducePlayRateButton), for: .touchUpInside)
-        aodControl.increasePlayRateButton.addTarget(self, action: #selector(pressedIncreasePlayRateButton), for: .touchUpInside)
+        
 
         urlView.okButton.addTarget(self, action: #selector(okUrl), for: .touchUpInside)
         urlView.cancelButton.addTarget(self, action: #selector(cancelUrl), for: .touchUpInside)
@@ -162,7 +155,7 @@ class AodPlayerController: UIViewController, PlayerDelegate {
 
     @objc
     func pressedPrevStepButton(sender: UIButton!) {
-        player.reward()
+        player.rewind()
     }
 
     @objc

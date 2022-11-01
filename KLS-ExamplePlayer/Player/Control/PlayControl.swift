@@ -50,7 +50,15 @@ class PlayControl: UIView {
             self.playbackRateLabel.text = value
         }
     }
-    public var delegate :PlayerControlDelegate
+    public var Duration: Float {
+        get {
+            return self.progressSlider.maximumValue
+        }
+        set (value) {
+            self.progressSlider.maximumValue = value
+        }
+    }
+    public var delegate :PlayerControlDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -189,22 +197,28 @@ class PlayControl: UIView {
     @objc
     func touchInsideButton(_ sender: UIButton!){
         let _buttonType: ButtonType = ButtonType(rawValue: (sender as UIButton).tag)!
-        NSLog("Player Control Touched \()", <#T##args: CVarArg...##CVarArg#>)
+        NSLog("Player Control Touched %c", String(reflecting: _buttonType))
         switch _buttonType {
         case .play:
-            
+            delegate?.playTouched()
             break
         case .rewind:
+            delegate?.repeatTouched()
             break
         case .forward:
+            delegate?.forwardTouched()
             break
         case .repeatPlay:
+            delegate?.repeatTouched()
             break
         case .reducePlaybackRate:
+            delegate?.reducePlaybackRateTouched()
             break
         case .increasePlaybackRate:
+            delegate?.increasePlaybackRateTouched()
             break
         case .mute:
+            delegate?.muteTouched()
             break
         default:
             break
@@ -215,8 +229,10 @@ class PlayControl: UIView {
         let _sliderType: SliderType = SliderType(rawValue: (sender as UISlider).tag)!
         switch _sliderType {
         case .progress:
+            delegate?.progressChanged(sender.value)
             break
         case .volume:
+            delegate?.volumeChanged(sender.value)
             break
         default:
             break

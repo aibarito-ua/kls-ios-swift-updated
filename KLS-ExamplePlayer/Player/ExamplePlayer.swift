@@ -8,260 +8,285 @@
 
 import UIKit
 import Foundation
-import MediaPlayer
-import AVFoundation
-
-protocol PlayerDelegate {
-    func prepared(title: String, duration: TimeInterval)
-    func pause()
-    func progress(position: TimeInterval, duration: TimeInterval)
-}
-
 
 class ExamplePlayer: AbstractView {
-
-
-    var playUrl: String?
-    private var isPrepared: Bool = false
-    public var isPlaying: Bool = false
-    var playerDelegate: PlayerDelegate?
     
-    public var posterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "music.note")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    private let indicator: UIActivityIndicatorView = {
-        let uiIndicator = UIActivityIndicatorView()
-        uiIndicator.hidesWhenStopped = true
-        uiIndicator.color = .white
-        return uiIndicator
-    }()
-    private var kollusPlayer: KollusPlayerView! = {
-        let player = KollusPlayerView()
-        player.translatesAutoresizingMaskIntoConstraints = false
-        return player
-    }()
+    internal var avPlayer:AVPlayer = AVPlayer()
+    //MARK: Private Delegate
+    // 재생할 컨텐츠 주소
+    fileprivate var _contentURL : String = ""
+    // 재생할 컨텐츠 타입 : VOD, AOD, LIVE
+    internal var _contentType : ContentType = .VOD
+    // 플레이어 상태
+    internal var _playerStatus : PlayerStatus = .NotPrepared
+    internal var _duration : TimeInterval = 0.0
+    // 플레이어 현재 재생 위치
+    internal var _currentTime: TimeInterval = 0.0
+    // Player Seek Step
+    internal var _seekStep: Double = 5.0
+    // 구간 반복 시작 위치
+    internal var _startPosition: TimeInterval = -1.0
+    // 구간 반복 마지막 위치
+    internal var _endPosition: TimeInterval = -1.0
     
-    private let kollusStorage: KollusStorage? = {
-        let appDeletgate = UIApplication.shared.delegate as! AppDelegate
-        return appDeletgate.kollusStorage
-    }()
+    internal var _volume: Float = 0.0
+    internal var _playbackRateStep: Float = 0.1
+    internal var _playbackRate: Float = 0.0
     
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-        self.backgroundColor = .white
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-        self.backgroundColor = .white
-    }
-
-    public func setPlayerUrl(string: String) {
-        self.playUrl = string
-        releasePlayer()
-        initPlayer()
-    }
-
-    private func initPlayer() {
-        self.kollusPlayer = {
-            let player = KollusPlayerView()
-            player.translatesAutoresizingMaskIntoConstraints = false
-            player.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-            player.storage = self.kollusStorage
-            player.contentURL = self.playUrl
-            player.debug = true
-            return player
-        }()
-        
-        self.addSubview(kollusPlayer)
-        kollusPlayer.delegate = self
-        kollusPlayer.drmDelegate = self
-        kollusPlayer.lmsDelegate = self
-        kollusPlayer.bookmarkDelegate = self
-
-        do {
-            self.indicator.startAnimating()
-            try self.kollusPlayer.prepareToPlay(withMode: .PlayerTypeNative)
-        } catch {
-            print("컨텐츠 준비중 에러 발생: ", error.localizedDescription)
+    //북마크
+    internal var _bookmarks: [KollusBookmark] = []
+    // 영상 포스터 이미지
+    // KollusContents 에 포스터 이미지가 있을 경우 지정
+    // 없을 경우
+    internal var _coverImageURL: String = ""
+    
+    
+    internal var _kollusPlayer: KollusPlayerView?
+    internal var _kollusContent: KollusContent?
+    internal var _kollusStorage: KollusStorage? {
+        get {
+            return (UIApplication.shared.delegate as! AppDelegate).kollusStorage
         }
     }
-
+    
+    
+    
+//    private var _topbar: Topbar
+    internal var _playControl: PlayControl?
+    internal var _indicator: UIActivityIndicatorView!
+    internal var _pipController: AVPictureInPictureController!
+    
+    //getter setter
+    public var ContentURL: String  {
+        get{
+            return _contentURL
+        }
+        set(value) {
+            if _contentURL != "" {
+                NSLog("이미 지정된 플레이어 URL은 다시 지정 할수 없습니다.\n %c", _contentURL)
+            }
+            else {
+                _contentURL = value
+            }
+        }
+    }
+    public var ContentType : ContentType {
+        get { return _contentType }
+    }
+    public var PlayerStatus : PlayerStatus {
+        get { return _playerStatus }
+    }
+    public var CurrentTime : TimeInterval {
+        get { return _currentTime }
+    }
+    public var Duration : TimeInterval {
+        get { return _duration }
+    }
+    public var PlaybackRate : Float {
+        get { return _playbackRate }
+    }
+    public var SeekStep : Double {
+        get{
+            return _seekStep
+        }
+        set(value){
+            _seekStep = value
+        }
+    }
+    public var StartPosition: TimeInterval {
+        get {
+            return _startPosition
+        }
+    }
+    public var EndPosition: TimeInterval {
+        get { return _endPosition }
+    }
+    public var CoverImageURL : String {
+        get { return _coverImageURL}
+        set(value) {_coverImageURL = value}
+    }
+    
+    //Delegate
+    public var delegate: ExamplePlayerDelegate?
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+    init(frame:CGRect, contentURL: String?){
+        super.init(frame: frame)
+        self.backgroundColor = .black
+        self._contentURL = contentURL ?? ""
+        NSLog(_contentURL)
+        initPlayer()
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+    
+    deinit {
+        releasePlayer()
+    }
+    
+    
+    private func initPlayer() {
+        self._kollusPlayer = KollusPlayerView()
+        self.addSubview(self._kollusPlayer!)
+        self._kollusPlayer?.frame = self.bounds
+        self._kollusPlayer?.backgroundColor = .clear
+        self._kollusPlayer?.translatesAutoresizingMaskIntoConstraints = false
+        self._kollusPlayer?.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self._kollusPlayer?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self._kollusPlayer?.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self._kollusPlayer?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self._kollusStorage?.delegate = self
+        
+        self._kollusPlayer?.storage = self._kollusStorage
+        self._kollusPlayer?.debug = true
+        self._kollusPlayer?.repeatMode = .one
+        self._kollusPlayer?.delegate = self
+        self._kollusPlayer?.drmDelegate = self
+        self._kollusPlayer?.lmsDelegate = self
+        self._kollusPlayer?.bookmarkDelegate = self
+        
+        
+        self._playControl = PlayControl()
+        self._playControl?.backgroundColor = .clear
+        self.addSubview(self._playControl!);
+        self._playControl?.translatesAutoresizingMaskIntoConstraints = false
+        self._playControl?.leadingAnchor.constraint( equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        self._playControl?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self._playControl?.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        self._playControl?.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        self._playControl?.delegate = self
+        
+        
+        self._indicator = UIActivityIndicatorView()
+        
+        self.addSubview(self._indicator)
+        self._indicator.backgroundColor = .clear
+        self._indicator.center = self.center
+        self._indicator.hidesWhenStopped = true
+        self.bringSubviewToFront(self._indicator)
+        self._indicator.startAnimating()
+        
+        do {
+            try self.prepare()
+        }
+        catch {
+            NSLog("Init Player Prepare Error %c", error.localizedDescription)
+        }
+        
+        
+    }
+    
     private func releasePlayer() {
-        if kollusPlayer != nil {
+        if self._kollusPlayer != nil {
             do {
-                if kollusPlayer.storage == nil {
-                    kollusPlayer.storage = self.kollusStorage
+                if self._kollusPlayer?.storage == nil {
+                    self._kollusPlayer?.storage = self._kollusStorage
                 }
-                try self.kollusPlayer.stop()
-                self.kollusPlayer.removeFromSuperview()
+                try self._kollusPlayer?.stop()
+                self._kollusPlayer?.removeFromSuperview()
             } catch {
                 print("Player Release Error: ", error.localizedDescription)
             }
         }
     }
-
-
-    private func setupView() {
-
-        self.addSubview(posterImageView)
-        self.addSubview(indicator)
-        posterImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        posterImageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-
-        self.indicator.center = self.center
-    }
-
-    func playAndPause() -> Bool {
-        if isPrepared {
-            if !isPlaying {
-                do {
-                    try kollusPlayer.play()
-                    return true
-                } catch {
-                    print("Player Play: ", error.localizedDescription)
-                }
-            } else {
-                do {
-                    try kollusPlayer.pause()
-                    return false
-                } catch {
-                    print("Player pause: ", error.localizedDescription)
-                }
+    public func prepare() throws -> Void {
+        
+        if self._playerStatus != .NotPrepared {
+            throw ExamplePlayerError.AlreadyPrepared
+        }
+        else {
+            do {
+                self._kollusPlayer?.contentURL = _contentURL
+                try self._kollusPlayer?.prepareToPlay(withMode: .PlayerTypeNative)
+            } catch {
+                self.delegate?.error(error: error)
             }
         }
-        return false
     }
-
-    var savedVolume: Float = 0.0
-
-
-    func reward() -> Bool {
-        if isPrepared && isPlaying {
-            DispatchQueue.main.async {
-                let position: TimeInterval = self.kollusPlayer.currentPlaybackTime
-                self.kollusPlayer.currentPlaybackTime = position - 5
-            }
-            return true
+    public func play() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
         }
-        return false
-    }
-
-    func forward() -> Bool {
-        if isPrepared && isPlaying {
-            DispatchQueue.main.async {
-                let position: TimeInterval = self.kollusPlayer.currentPlaybackTime
-                self.kollusPlayer.currentPlaybackTime = position + 5
-            }
-            return true
-        }
-        return false
-    }
-    func decreasePlaybackRate() -> Float {
-        if isPrepared && isPlaying {
-            let playbackRate: Float = kollusPlayer.currentPlaybackRate
-            if playbackRate > -2.0 {
-                kollusPlayer.currentPlaybackRate = playbackRate - 0.1
-                return kollusPlayer.currentPlaybackRate
+        else {
+            do {
+                try self._kollusPlayer?.play()
+            } catch {
+                self.delegate?.error(error: error)
             }
         }
-        return kollusPlayer.currentPlaybackRate
     }
-
-    func increasePlaybackRate() -> Float {
-        if isPrepared && isPlaying {
-            let playbackRate: Float = kollusPlayer.currentPlaybackRate
-            if playbackRate < 2.0 {
-                kollusPlayer.currentPlaybackRate = playbackRate + 0.1
-                return kollusPlayer.currentPlaybackRate
+    public func pause() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            do {
+                try self._kollusPlayer?.pause()
+            } catch {
+                self.delegate?.error(error: error)
             }
         }
-        return kollusPlayer.currentPlaybackRate
     }
-
-    func setupRemoteTransportControls() {
-        // Get the shared MPRemoteCommandCenter
-        let commandCenter = MPRemoteCommandCenter.shared()
-
-        // Add handler for Play Command
-        commandCenter.playCommand.addTarget { [unowned self] event in
-            self.playAndPause()
-            return .success
+    public func seek(position: TimeInterval) throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._kollusPlayer?.currentPlaybackTime = position
         }
-
-        // Add handler for Pause Command
-        commandCenter.pauseCommand.addTarget { [unowned self] event in
-            print("Pause command - is playing: \(self.isPlaying)")
-            self.playAndPause()
-            return .success
+    }
+    public func forward() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._kollusPlayer?.currentPlaybackTime += self._seekStep
         }
-        commandCenter.changePlaybackPositionCommand.addTarget(self, action: #selector(onChangePlaybackPositionCommand))
     }
-
-    @objc
-    func onChangePlaybackPositionCommand(event: MPChangePlaybackPositionCommandEvent) -> MPRemoteCommandHandlerStatus {
-        print("event position time: \(event.positionTime)")
-        DispatchQueue.main.async {
-            self.kollusPlayer.currentPlaybackTime = event.positionTime
+    public func rewind() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._kollusPlayer?.currentPlaybackTime -= self._seekStep
         }
-        return MPRemoteCommandHandlerStatus.success
     }
-
-    func setupNowPlaying(title: String!) {
-
-//        let dq = DispatchQueue.global(qos: .background)
-//        dq.async {
-        // Define Now Playing Info
-        do {
-            var nowPlayingInfo = [String: Any]()
-            let posterUrl: URL = try URL(fileURLWithPath: kollusPlayer.content.snapshot)
-            let posterData = try Data(contentsOf: posterUrl)
-
-            if let image: UIImage = UIImage(data: posterData) {
-                nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                    return image
-                }
-            }
-            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = kollusPlayer.currentPlaybackTime
-            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = kollusPlayer.content.duration
-            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = kollusPlayer.currentPlaybackRate
-
-            // Set the metadata
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-//        }
-        } catch {
-            print("MP Player Setting Error", error.localizedDescription)
+    public func setRepeatStart(position: TimeInterval) throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._startPosition = position
         }
-
     }
-    func updateNowPlaying(isPause: Bool) {
-        // Define Now Playing Info
-        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
-
-        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = kollusPlayer.currentPlaybackTime
-        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isPause ? 0 : 1
-
-        // Set the metadata
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    public func setRepeatEnd(position: TimeInterval) throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._endPosition = position
+        }
     }
-    var timer: Timer?
-    func runTimer() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            self.playerDelegate?.progress(position: self.kollusPlayer.currentPlaybackTime, duration: self.kollusPlayer.content.duration)
-        })
+    public func resetRepeat() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._startPosition = -1.0
+            self._endPosition = -1.0
+        }
     }
-    func stopTimer() {
-        self.timer?.invalidate()
-        self.timer = nil
+    func decreasePlaybackRate() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._kollusPlayer?.currentPlaybackRate = self._playbackRate - _playbackRateStep < -2.0 ? -2.0 : self._playbackRate - self._playbackRateStep
+            
+        }
     }
-
-
-    
+    func increasePlaybackRate() throws -> Void {
+        if self._playerStatus == .NotPrepared {
+            throw ExamplePlayerError.NotPreparedError
+        }else {
+            self._kollusPlayer?.currentPlaybackRate = self._playbackRate - _playbackRateStep > 2.0 ? 2.0 : self._playbackRate - self._playbackRateStep
+            
+        }
+    }
 }

@@ -7,3 +7,15 @@
 //
 
 import Foundation
+protocol PlayerControlDelegate {
+    func playTouched()
+    func rewindTouched()
+    func forwardTouched()
+    func repeatTouched()
+    func reducePlaybackRateTouched()
+    func increasePlaybackRateTouched()
+    func muteTouched()
+    
+    func progressChanged(_ position: Float)
+    func volumeChanged(_ value: Float)
+}

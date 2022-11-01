@@ -9,43 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let topbar: Topbar = Topbar()
-    let liveControl : LiveControl = LiveControl()
+    private var player : ExamplePlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .purple
-        self.view.addSubview(topbar)
-//        self.view.addSubview(liveControl)
-                
-        topbar.translatesAutoresizingMaskIntoConstraints = false
-        topbar.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        topbar.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        topbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        topbar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        topbar.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        topbar.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
-        
-        
-        liveControl.translatesAutoresizingMaskIntoConstraints = false
-        liveControl.backgroundColor = UIColor.purple.withAlphaComponent(0.1)
-        liveControl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        liveControl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-//        liveControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-    liveControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        liveControl.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        liveControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        liveControl.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
-
-        topbar.backButton.addTarget(self, action: #selector(backbutton_pressed), for: .touchUpInside)
+        player = ExamplePlayer(frame: self.view.bounds, contentURL:"https://v.kr.kollus.com/si?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtYyI6W3sibWNrZXkiOiI4eXY2VHJnQiIsIm1jcGYiOiJpa3dvbnNlby1tb2JpbGUxLW5vcm1hbCJ9XSwiY3VpZCI6InRlc3QzMzMiLCJleHB0IjoxOTQyMTM2NTQ1fQ.C2a-9MZIg_mUJxc90v04A_fUDyhmbpMSVsECgF51z68&custom_key=53d759b68288316c4fe0e403702473998ec4495fc4c31a647c9cd39017d961a3")
+        self.view.addSubview(player)
+        player.translatesAutoresizingMaskIntoConstraints = false
+        player.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        player.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        player.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        player.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
-    @objc
-    func backbutton_pressed(sender: UIButton!){
-        
-    }
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        print("viewWillTransition")
-    }
-
 }
 

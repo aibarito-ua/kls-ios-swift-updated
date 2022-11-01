@@ -8,9 +8,11 @@
 
 import Foundation
 
-protocol ExamplePlayerProtocol {
+protocol ExamplePlayerDelegate {
     func prepared()
     func paused()
-    func progress()
+    func progress(_ progress:TimeInterval)
+    func playbackrate(_ playbackrate:Float)
+    func error(error: Error)
     
 }

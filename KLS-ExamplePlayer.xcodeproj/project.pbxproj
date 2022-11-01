@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		B731A3E30F1CC02265CA3A05 /* PlayControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = B731AE1BF6F12873B8AF512C /* PlayControl.xib */; };
 		B731A6204DE106323D38DB14 /* PlayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731AFA67F5463C9DE443A33 /* PlayControl.swift */; };
+		C5340826288D4EFF00236CAB /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340825288D4EFF00236CAB /* PlayerStatus.swift */; };
+		C5340829288D50E800236CAB /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340828288D50E800236CAB /* ContentType.swift */; };
+		C534082B288D83B500236CAB /* ExamplePlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C534082A288D83B500236CAB /* ExamplePlayerError.swift */; };
+		C534082D288E0BF000236CAB /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C534082C288E0BF000236CAB /* ButtonType.swift */; };
+		C534082F288E0FEA00236CAB /* PlayerControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C534082E288E0FEA00236CAB /* PlayerControlDelegate.swift */; };
+		C5340831288E1A9400236CAB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340830288E1A9400236CAB /* Logger.swift */; };
+		C5340833288E1D8500236CAB /* PlayerControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340832288E1D8500236CAB /* PlayerControlExtension.swift */; };
+		C5340835288E21F600236CAB /* BackgroundPlayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340834288E21F600236CAB /* BackgroundPlayExtension.swift */; };
+		C54A65C1288FD5A10099D209 /* KollusStorageDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A65C0288FD5A10099D209 /* KollusStorageDelegateExtension.swift */; };
 		C57090552887973E00457C44 /* ExmaplePlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57090542887973E00457C44 /* ExmaplePlayerDelegate.swift */; };
 		C58AD81A288634AC006FEF6E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8768247E876300F5526F /* libsqlite3.0.tbd */; };
 		C58AD81B288634B6006FEF6E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE876A247E877000F5526F /* libiconv.tbd */; };
@@ -36,21 +45,15 @@
 		DB8F9BBC246CBFF8006C6792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBA246CBFF8006C6792 /* Main.storyboard */; };
 		DB8F9BBE246CBFFC006C6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBD246CBFFC006C6792 /* Assets.xcassets */; };
 		DB8F9BC1246CBFFC006C6792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BBF246CBFFC006C6792 /* LaunchScreen.storyboard */; };
-		DB8F9BCE246CC2BB006C6792 /* LivePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */; };
-		DB8F9BD0246CC2D5006C6792 /* LivePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */; };
 		DB8F9BD3246CC412006C6792 /* Topbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BD2246CC412006C6792 /* Topbar.swift */; };
 		DB8F9BD5246CC427006C6792 /* Topbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BD4246CC427006C6792 /* Topbar.xib */; };
 		DB8F9BD7246CF282006C6792 /* AbstractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BD6246CF282006C6792 /* AbstractView.swift */; };
 		DB8F9BD9246CF29F006C6792 /* AbstractView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BD8246CF29F006C6792 /* AbstractView.xib */; };
-		DB8F9BDB246D06C6006C6792 /* LiveControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BDA246D06C6006C6792 /* LiveControl.swift */; };
-		DB8F9BDD246D06D2006C6792 /* LiveControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BDC246D06D2006C6792 /* LiveControl.xib */; };
-		DB8F9BDF246D13F9006C6792 /* LivePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */; };
 		DB8F9BE1246D2A9C006C6792 /* UrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F9BE0246D2A9C006C6792 /* UrlView.swift */; };
 		DB8F9BE3246D2ABA006C6792 /* UrlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8F9BE2246D2ABA006C6792 /* UrlView.xib */; };
 		DBE104F3246F88D1001E519B /* CustomSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE104F2246F88D1001E519B /* CustomSlider.xib */; };
 		DBEE875E247DFA8200F5526F /* ExamplePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEE875D247DFA8200F5526F /* ExamplePlayer.xib */; };
 		DBEE8760247DFAA000F5526F /* ExamplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE875F247DFAA000F5526F /* ExamplePlayer.swift */; };
-		DBEE8762247DFC2B00F5526F /* AodPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */; };
 		DBF6B78A246DA24C00F5A9E6 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,15 @@
 		B731AB807F085487958C72BC /* kls-ios-swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "kls-ios-swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		B731AE1BF6F12873B8AF512C /* PlayControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayControl.xib; sourceTree = "<group>"; };
 		B731AFA67F5463C9DE443A33 /* PlayControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayControl.swift; sourceTree = "<group>"; };
+		C5340825288D4EFF00236CAB /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
+		C5340828288D50E800236CAB /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		C534082A288D83B500236CAB /* ExamplePlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePlayerError.swift; sourceTree = "<group>"; };
+		C534082C288E0BF000236CAB /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
+		C534082E288E0FEA00236CAB /* PlayerControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlDelegate.swift; sourceTree = "<group>"; };
+		C5340830288E1A9400236CAB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		C5340832288E1D8500236CAB /* PlayerControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlExtension.swift; sourceTree = "<group>"; };
+		C5340834288E21F600236CAB /* BackgroundPlayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPlayExtension.swift; sourceTree = "<group>"; };
+		C54A65C0288FD5A10099D209 /* KollusStorageDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KollusStorageDelegateExtension.swift; sourceTree = "<group>"; };
 		C57090542887973E00457C44 /* ExmaplePlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExmaplePlayerDelegate.swift; sourceTree = "<group>"; };
 		C58AD81828863498006FEF6E /* libKollusSDK_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKollusSDK_debug.a; path = ../KollusMobileSDK/KollusSDK_iOS_v2.2.94_0726/KollusPlayer/KollusSDK/lib/libKollusSDK_debug.a; sourceTree = "<group>"; };
 		C58AD82828863739006FEF6E /* PallyConFPSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PallyConFPSSDK.framework; path = ExternalLib/PallyConFPSSDK.framework; sourceTree = "<group>"; };
@@ -80,7 +92,7 @@
 		C5AB6E362887465B00110752 /* PlayerDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegateExtension.swift; sourceTree = "<group>"; };
 		C5AB6E38288746BA00110752 /* LMSDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSDelegateExtension.swift; sourceTree = "<group>"; };
 		C5AB6E3A288746D200110752 /* BookmarkDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDelegateExtension.swift; sourceTree = "<group>"; };
-		DB8F9BB1246CBFF8006C6792 /* kls-ios-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kls-ios-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB8F9BB1246CBFF8006C6792 /* KLS-ExamplePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLS-ExamplePlayer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8F9BB4246CBFF8006C6792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB8F9BB6246CBFF8006C6792 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB8F9BB8246CBFF8006C6792 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,21 +100,15 @@
 		DB8F9BBD246CBFFC006C6792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB8F9BC0246CBFFC006C6792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB8F9BC2246CBFFC006C6792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayer.swift; sourceTree = "<group>"; };
-		DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LivePlayer.xib; sourceTree = "<group>"; };
 		DB8F9BD2246CC412006C6792 /* Topbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topbar.swift; sourceTree = "<group>"; };
 		DB8F9BD4246CC427006C6792 /* Topbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Topbar.xib; sourceTree = "<group>"; };
 		DB8F9BD6246CF282006C6792 /* AbstractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractView.swift; sourceTree = "<group>"; };
 		DB8F9BD8246CF29F006C6792 /* AbstractView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AbstractView.xib; sourceTree = "<group>"; };
-		DB8F9BDA246D06C6006C6792 /* LiveControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveControl.swift; sourceTree = "<group>"; };
-		DB8F9BDC246D06D2006C6792 /* LiveControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveControl.xib; sourceTree = "<group>"; };
-		DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayerController.swift; sourceTree = "<group>"; };
 		DB8F9BE0246D2A9C006C6792 /* UrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlView.swift; sourceTree = "<group>"; };
 		DB8F9BE2246D2ABA006C6792 /* UrlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlView.xib; sourceTree = "<group>"; };
 		DBE104F2246F88D1001E519B /* CustomSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSlider.xib; sourceTree = "<group>"; };
 		DBEE875D247DFA8200F5526F /* ExamplePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamplePlayer.xib; sourceTree = "<group>"; };
 		DBEE875F247DFAA000F5526F /* ExamplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePlayer.swift; sourceTree = "<group>"; };
-		DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AodPlayerController.swift; sourceTree = "<group>"; };
 		DBEE8768247E876300F5526F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		DBEE876A247E877000F5526F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		DBEE876C247E877800F5526F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -146,10 +152,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5340824288D4EE300236CAB /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				C5340825288D4EFF00236CAB /* PlayerStatus.swift */,
+				C5340828288D50E800236CAB /* ContentType.swift */,
+				C534082A288D83B500236CAB /* ExamplePlayerError.swift */,
+				C534082C288E0BF000236CAB /* ButtonType.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
 		C57090532887972900457C44 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				C57090542887973E00457C44 /* ExmaplePlayerDelegate.swift */,
+				C534082E288E0FEA00236CAB /* PlayerControlDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -157,6 +175,12 @@
 		C5AB6E32288744AA00110752 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				DB8F9BD2246CC412006C6792 /* Topbar.swift */,
+				DB8F9BD4246CC427006C6792 /* Topbar.xib */,
+				DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */,
+				DBE104F2246F88D1001E519B /* CustomSlider.xib */,
+				B731AE1BF6F12873B8AF512C /* PlayControl.xib */,
+				B731AFA67F5463C9DE443A33 /* PlayControl.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -168,6 +192,9 @@
 				C5AB6E38288746BA00110752 /* LMSDelegateExtension.swift */,
 				C5AB6E362887465B00110752 /* PlayerDelegateExtension.swift */,
 				C5AB6E3A288746D200110752 /* BookmarkDelegateExtension.swift */,
+				C5340832288E1D8500236CAB /* PlayerControlExtension.swift */,
+				C5340834288E21F600236CAB /* BackgroundPlayExtension.swift */,
+				C54A65C0288FD5A10099D209 /* KollusStorageDelegateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,7 +213,7 @@
 		DB8F9BB2246CBFF8006C6792 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB8F9BB1246CBFF8006C6792 /* kls-ios-swift.app */,
+				DB8F9BB1246CBFF8006C6792 /* KLS-ExamplePlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,8 +223,6 @@
 			children = (
 				DBEE875C247DFA4D00F5526F /* Player */,
 				DB8F9BD1246CC3D9006C6792 /* Comm */,
-				DB8F9BCA246CC061006C6792 /* MultiDrm */,
-				DB8F9BC9246CC048006C6792 /* Live */,
 				DB8F9BB4246CBFF8006C6792 /* AppDelegate.swift */,
 				DB8F9BB6246CBFF8006C6792 /* SceneDelegate.swift */,
 				DB8F9BB8246CBFF8006C6792 /* ViewController.swift */,
@@ -205,42 +230,18 @@
 				DB8F9BBD246CBFFC006C6792 /* Assets.xcassets */,
 				DB8F9BBF246CBFFC006C6792 /* LaunchScreen.storyboard */,
 				DB8F9BC2246CBFFC006C6792 /* Info.plist */,
+				C5340830288E1A9400236CAB /* Logger.swift */,
 			);
 			path = "KLS-ExamplePlayer";
-			sourceTree = "<group>";
-		};
-		DB8F9BC9246CC048006C6792 /* Live */ = {
-			isa = PBXGroup;
-			children = (
-				DB8F9BCD246CC2BB006C6792 /* LivePlayer.swift */,
-				DB8F9BCF246CC2D5006C6792 /* LivePlayer.xib */,
-				DB8F9BDA246D06C6006C6792 /* LiveControl.swift */,
-				DB8F9BDC246D06D2006C6792 /* LiveControl.xib */,
-				DB8F9BDE246D13F9006C6792 /* LivePlayerController.swift */,
-			);
-			path = Live;
-			sourceTree = "<group>";
-		};
-		DB8F9BCA246CC061006C6792 /* MultiDrm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MultiDrm;
 			sourceTree = "<group>";
 		};
 		DB8F9BD1246CC3D9006C6792 /* Comm */ = {
 			isa = PBXGroup;
 			children = (
-				DB8F9BD2246CC412006C6792 /* Topbar.swift */,
-				DB8F9BD4246CC427006C6792 /* Topbar.xib */,
 				DB8F9BD6246CF282006C6792 /* AbstractView.swift */,
 				DB8F9BD8246CF29F006C6792 /* AbstractView.xib */,
 				DB8F9BE0246D2A9C006C6792 /* UrlView.swift */,
 				DB8F9BE2246D2ABA006C6792 /* UrlView.xib */,
-				DBF6B789246DA24C00F5A9E6 /* CustomSlider.swift */,
-				DBE104F2246F88D1001E519B /* CustomSlider.xib */,
-				B731AE1BF6F12873B8AF512C /* PlayControl.xib */,
-				B731AFA67F5463C9DE443A33 /* PlayControl.swift */,
 			);
 			path = Comm;
 			sourceTree = "<group>";
@@ -248,12 +249,12 @@
 		DBEE875C247DFA4D00F5526F /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				C5340824288D4EE300236CAB /* Type */,
 				C57090532887972900457C44 /* Delegate */,
 				C5AB6E33288744D900110752 /* Extension */,
 				C5AB6E32288744AA00110752 /* Control */,
 				DBEE875D247DFA8200F5526F /* ExamplePlayer.xib */,
 				DBEE875F247DFAA000F5526F /* ExamplePlayer.swift */,
-				DBEE8761247DFC2B00F5526F /* AodPlayerController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -284,9 +285,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB8F9BB0246CBFF8006C6792 /* kls-ios-swift */ = {
+		DB8F9BB0246CBFF8006C6792 /* KLS-ExamplePlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB8F9BC5246CBFFC006C6792 /* Build configuration list for PBXNativeTarget "kls-ios-swift" */;
+			buildConfigurationList = DB8F9BC5246CBFFC006C6792 /* Build configuration list for PBXNativeTarget "KLS-ExamplePlayer" */;
 			buildPhases = (
 				DB8F9BAD246CBFF8006C6792 /* Sources */,
 				DB8F9BAE246CBFF8006C6792 /* Frameworks */,
@@ -297,9 +298,9 @@
 			);
 			dependencies = (
 			);
-			name = "kls-ios-swift";
+			name = "KLS-ExamplePlayer";
 			productName = "kls-ios-swift";
-			productReference = DB8F9BB1246CBFF8006C6792 /* kls-ios-swift.app */;
+			productReference = DB8F9BB1246CBFF8006C6792 /* KLS-ExamplePlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +310,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "양현덕";
 				TargetAttributes = {
 					DB8F9BB0246CBFF8006C6792 = {
@@ -317,7 +318,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB8F9BAC246CBFF8006C6792 /* Build configuration list for PBXProject "kls-ios-swift" */;
+			buildConfigurationList = DB8F9BAC246CBFF8006C6792 /* Build configuration list for PBXProject "KLS-ExamplePlayer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -330,7 +331,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB8F9BB0246CBFF8006C6792 /* kls-ios-swift */,
+				DB8F9BB0246CBFF8006C6792 /* KLS-ExamplePlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -340,7 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8F9BD0246CC2D5006C6792 /* LivePlayer.xib in Resources */,
 				DB8F9BC1246CBFFC006C6792 /* LaunchScreen.storyboard in Resources */,
 				DB8F9BE3246D2ABA006C6792 /* UrlView.xib in Resources */,
 				DB8F9BD9246CF29F006C6792 /* AbstractView.xib in Resources */,
@@ -348,7 +348,6 @@
 				DBE104F3246F88D1001E519B /* CustomSlider.xib in Resources */,
 				DB8F9BD5246CC427006C6792 /* Topbar.xib in Resources */,
 				DB8F9BBC246CBFF8006C6792 /* Main.storyboard in Resources */,
-				DB8F9BDD246D06D2006C6792 /* LiveControl.xib in Resources */,
 				DBEE875E247DFA8200F5526F /* ExamplePlayer.xib in Resources */,
 				B731A3E30F1CC02265CA3A05 /* PlayControl.xib in Resources */,
 			);
@@ -361,23 +360,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8F9BCE246CC2BB006C6792 /* LivePlayer.swift in Sources */,
+				C54A65C1288FD5A10099D209 /* KollusStorageDelegateExtension.swift in Sources */,
+				C534082F288E0FEA00236CAB /* PlayerControlDelegate.swift in Sources */,
 				C57090552887973E00457C44 /* ExmaplePlayerDelegate.swift in Sources */,
 				C5AB6E3B288746D200110752 /* BookmarkDelegateExtension.swift in Sources */,
 				C5AB6E372887465B00110752 /* PlayerDelegateExtension.swift in Sources */,
 				DBF6B78A246DA24C00F5A9E6 /* CustomSlider.swift in Sources */,
+				C5340829288D50E800236CAB /* ContentType.swift in Sources */,
+				C5340831288E1A9400236CAB /* Logger.swift in Sources */,
+				C5340835288E21F600236CAB /* BackgroundPlayExtension.swift in Sources */,
 				DB8F9BB9246CBFF8006C6792 /* ViewController.swift in Sources */,
 				DB8F9BD7246CF282006C6792 /* AbstractView.swift in Sources */,
 				DBEE8760247DFAA000F5526F /* ExamplePlayer.swift in Sources */,
 				DB8F9BB5246CBFF8006C6792 /* AppDelegate.swift in Sources */,
 				C5AB6E352887450E00110752 /* DRMDelegateExtension.swift in Sources */,
-				DBEE8762247DFC2B00F5526F /* AodPlayerController.swift in Sources */,
 				C5AB6E39288746BA00110752 /* LMSDelegateExtension.swift in Sources */,
+				C534082D288E0BF000236CAB /* ButtonType.swift in Sources */,
 				DB8F9BB7246CBFF8006C6792 /* SceneDelegate.swift in Sources */,
-				DB8F9BDB246D06C6006C6792 /* LiveControl.swift in Sources */,
+				C5340826288D4EFF00236CAB /* PlayerStatus.swift in Sources */,
+				C534082B288D83B500236CAB /* ExamplePlayerError.swift in Sources */,
 				DB8F9BE1246D2A9C006C6792 /* UrlView.swift in Sources */,
-				DB8F9BDF246D13F9006C6792 /* LivePlayerController.swift in Sources */,
 				DB8F9BD3246CC412006C6792 /* Topbar.swift in Sources */,
+				C5340833288E1D8500236CAB /* PlayerControlExtension.swift in Sources */,
 				B731A6204DE106323D38DB14 /* PlayControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +434,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -454,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -490,6 +495,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -508,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -531,7 +537,7 @@
 					"$(PROJECT_DIR)/ExternalLib",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/include/KollusSDK";
-				INFOPLIST_FILE = "kls-ios-swift/Info.plist";
+				INFOPLIST_FILE = "KLS-ExamplePlayer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +547,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.catenoid.pe;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.millie.MillieShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -562,7 +568,7 @@
 					"$(PROJECT_DIR)/ExternalLib",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/include/KollusSDK";
-				INFOPLIST_FILE = "kls-ios-swift/Info.plist";
+				INFOPLIST_FILE = "KLS-ExamplePlayer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,7 +578,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.catenoid.pe;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.millie.MillieShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -583,7 +589,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB8F9BAC246CBFF8006C6792 /* Build configuration list for PBXProject "kls-ios-swift" */ = {
+		DB8F9BAC246CBFF8006C6792 /* Build configuration list for PBXProject "KLS-ExamplePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB8F9BC3246CBFFC006C6792 /* Debug */,
@@ -592,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB8F9BC5246CBFFC006C6792 /* Build configuration list for PBXNativeTarget "kls-ios-swift" */ = {
+		DB8F9BC5246CBFFC006C6792 /* Build configuration list for PBXNativeTarget "KLS-ExamplePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB8F9BC6246CBFFC006C6792 /* Debug */,

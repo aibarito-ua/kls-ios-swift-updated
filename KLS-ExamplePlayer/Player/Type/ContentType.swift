@@ -7,3 +7,8 @@
 //
 
 import Foundation
+enum ContentType: String {
+    case VOD = "VOD"
+    case AOD = "AOD"
+    case LIVE = "LIVE"
+}
