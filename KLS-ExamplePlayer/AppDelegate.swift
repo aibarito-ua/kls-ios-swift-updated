@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if kollusStorage == nil {
             kollusStorage = KollusStorage()
-            kollusStorage?.applicationKey = ""
-            kollusStorage?.applicationBundleID = ""
+            kollusStorage?.applicationKey = "0e8de8edb342d5fd5bf2f4a1ecaec5417e96f869"
+            kollusStorage?.applicationBundleID = Bundle.main.bundleIdentifier
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
-            kollusStorage?.applicationExpireDate = dateFormatter.date(from: "")
-            kollusStorage?.serverPort = 7430
+            kollusStorage?.applicationExpireDate = dateFormatter.date(from: "2025/01/31")
+            kollusStorage?.serverPort = 7594
             
             
             do {

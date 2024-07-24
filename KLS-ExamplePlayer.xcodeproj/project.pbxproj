@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83893F9F2C50D8DF00775474 /* libKollusSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83893F9E2C50D8DF00775474 /* libKollusSDK.a */; };
+		83893FB52C50DBA600775474 /* libKollusSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83893FB12C50DBA600775474 /* libKollusSDK.a */; };
+		83893FB92C50DC3F00775474 /* PallyConFPSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83893FB62C50DBB100775474 /* PallyConFPSSDK.framework */; };
+		83893FBA2C50DC3F00775474 /* PallyConFPSSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83893FB62C50DBB100775474 /* PallyConFPSSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B731A3E30F1CC02265CA3A05 /* PlayControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = B731AE1BF6F12873B8AF512C /* PlayControl.xib */; };
 		B731A6204DE106323D38DB14 /* PlayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731AFA67F5463C9DE443A33 /* PlayControl.swift */; };
 		C5340826288D4EFF00236CAB /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5340825288D4EFF00236CAB /* PlayerStatus.swift */; };
@@ -32,9 +36,6 @@
 		C58AD824288634FB006FEF6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE877C247E87CA00F5526F /* CoreGraphics.framework */; };
 		C58AD82528863502006FEF6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE877E247E87D200F5526F /* UIKit.framework */; };
 		C58AD8262886350E006FEF6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8780247E87DA00F5526F /* Foundation.framework */; };
-		C58AD8272886372C006FEF6E /* libKollusSDK_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE8782247E87EC00F5526F /* libKollusSDK_debug.a */; };
-		C58AD82A28863797006FEF6E /* PallyConFPSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C58AD82828863739006FEF6E /* PallyConFPSSDK.framework */; };
-		C58AD82B28863797006FEF6E /* PallyConFPSSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C58AD82828863739006FEF6E /* PallyConFPSSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5AB6E352887450E00110752 /* DRMDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB6E342887450E00110752 /* DRMDelegateExtension.swift */; };
 		C5AB6E372887465B00110752 /* PlayerDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB6E362887465B00110752 /* PlayerDelegateExtension.swift */; };
 		C5AB6E39288746BA00110752 /* LMSDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB6E38288746BA00110752 /* LMSDelegateExtension.swift */; };
@@ -58,13 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C58AD82C28863797006FEF6E /* Embed Frameworks */ = {
+		83893FBB2C50DC3F00775474 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C58AD82B28863797006FEF6E /* PallyConFPSSDK.framework in Embed Frameworks */,
+				83893FBA2C50DC3F00775474 /* PallyConFPSSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +73,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		83893F9E2C50D8DF00775474 /* libKollusSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKollusSDK.a; path = ExternalLib/KollusSDK/lib/libKollusSDK.a; sourceTree = "<group>"; };
+		83893FA02C50DBA600775474 /* KollusBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusBookmark.h; sourceTree = "<group>"; };
+		83893FA12C50DBA600775474 /* KollusChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusChat.h; sourceTree = "<group>"; };
+		83893FA22C50DBA600775474 /* KollusContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusContent.h; sourceTree = "<group>"; };
+		83893FA32C50DBA600775474 /* KollusPlayerBookmarkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusPlayerBookmarkDelegate.h; sourceTree = "<group>"; };
+		83893FA42C50DBA600775474 /* KollusPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusPlayerDelegate.h; sourceTree = "<group>"; };
+		83893FA52C50DBA600775474 /* KollusPlayerDRMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusPlayerDRMDelegate.h; sourceTree = "<group>"; };
+		83893FA62C50DBA600775474 /* KollusPlayerLMSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusPlayerLMSDelegate.h; sourceTree = "<group>"; };
+		83893FA72C50DBA600775474 /* KollusPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusPlayerView.h; sourceTree = "<group>"; };
+		83893FA82C50DBA600775474 /* KollusSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusSDK.h; sourceTree = "<group>"; };
+		83893FA92C50DBA600775474 /* KollusStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusStorage.h; sourceTree = "<group>"; };
+		83893FAA2C50DBA600775474 /* KollusStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KollusStorageDelegate.h; sourceTree = "<group>"; };
+		83893FAB2C50DBA600775474 /* KPSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPSection.h; sourceTree = "<group>"; };
+		83893FAC2C50DBA600775474 /* LogUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtil.h; sourceTree = "<group>"; };
+		83893FAD2C50DBA600775474 /* SubTitleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTitleInfo.h; sourceTree = "<group>"; };
+		83893FB12C50DBA600775474 /* libKollusSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKollusSDK.a; sourceTree = "<group>"; };
+		83893FB62C50DBB100775474 /* PallyConFPSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PallyConFPSSDK.framework; sourceTree = "<group>"; };
 		B731AB807F085487958C72BC /* kls-ios-swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "kls-ios-swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		B731AE1BF6F12873B8AF512C /* PlayControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayControl.xib; sourceTree = "<group>"; };
 		B731AFA67F5463C9DE443A33 /* PlayControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayControl.swift; sourceTree = "<group>"; };
@@ -87,7 +105,6 @@
 		C57090542887973E00457C44 /* ExmaplePlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExmaplePlayerDelegate.swift; sourceTree = "<group>"; };
 		C58AD81828863498006FEF6E /* libKollusSDK_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKollusSDK_debug.a; path = ../KollusMobileSDK/KollusSDK_iOS_v2.2.94_0726/KollusPlayer/KollusSDK/lib/libKollusSDK_debug.a; sourceTree = "<group>"; };
 		C58AD82828863739006FEF6E /* PallyConFPSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PallyConFPSSDK.framework; path = ExternalLib/PallyConFPSSDK.framework; sourceTree = "<group>"; };
-		C58AD82E288637E6006FEF6E /* ExternalLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExternalLib; sourceTree = "<group>"; };
 		C5AB6E342887450E00110752 /* DRMDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRMDelegateExtension.swift; sourceTree = "<group>"; };
 		C5AB6E362887465B00110752 /* PlayerDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegateExtension.swift; sourceTree = "<group>"; };
 		C5AB6E38288746BA00110752 /* LMSDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSDelegateExtension.swift; sourceTree = "<group>"; };
@@ -131,7 +148,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C58AD8272886372C006FEF6E /* libKollusSDK_debug.a in Frameworks */,
+				83893F9F2C50D8DF00775474 /* libKollusSDK.a in Frameworks */,
+				83893FB92C50DC3F00775474 /* PallyConFPSSDK.framework in Frameworks */,
+				83893FB52C50DBA600775474 /* libKollusSDK.a in Frameworks */,
 				C58AD8262886350E006FEF6E /* Foundation.framework in Frameworks */,
 				C58AD82528863502006FEF6E /* UIKit.framework in Frameworks */,
 				C58AD824288634FB006FEF6E /* CoreGraphics.framework in Frameworks */,
@@ -142,7 +161,6 @@
 				C58AD81F288634D4006FEF6E /* AudioToolbox.framework in Frameworks */,
 				C58AD81E288634CE006FEF6E /* QuartzCore.framework in Frameworks */,
 				C58AD81D288634C7006FEF6E /* AVFoundation.framework in Frameworks */,
-				C58AD82A28863797006FEF6E /* PallyConFPSSDK.framework in Frameworks */,
 				C58AD81C288634C0006FEF6E /* CoreMedia.framework in Frameworks */,
 				C58AD81B288634B6006FEF6E /* libiconv.tbd in Frameworks */,
 				C58AD81A288634AC006FEF6E /* libsqlite3.0.tbd in Frameworks */,
@@ -152,6 +170,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83893FAE2C50DBA600775474 /* KollusSDK */ = {
+			isa = PBXGroup;
+			children = (
+				83893FA02C50DBA600775474 /* KollusBookmark.h */,
+				83893FA12C50DBA600775474 /* KollusChat.h */,
+				83893FA22C50DBA600775474 /* KollusContent.h */,
+				83893FA32C50DBA600775474 /* KollusPlayerBookmarkDelegate.h */,
+				83893FA42C50DBA600775474 /* KollusPlayerDelegate.h */,
+				83893FA52C50DBA600775474 /* KollusPlayerDRMDelegate.h */,
+				83893FA62C50DBA600775474 /* KollusPlayerLMSDelegate.h */,
+				83893FA72C50DBA600775474 /* KollusPlayerView.h */,
+				83893FA82C50DBA600775474 /* KollusSDK.h */,
+				83893FA92C50DBA600775474 /* KollusStorage.h */,
+				83893FAA2C50DBA600775474 /* KollusStorageDelegate.h */,
+				83893FAB2C50DBA600775474 /* KPSection.h */,
+				83893FAC2C50DBA600775474 /* LogUtil.h */,
+				83893FAD2C50DBA600775474 /* SubTitleInfo.h */,
+			);
+			path = KollusSDK;
+			sourceTree = "<group>";
+		};
+		83893FAF2C50DBA600775474 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				83893FAE2C50DBA600775474 /* KollusSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		83893FB22C50DBA600775474 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				83893FB12C50DBA600775474 /* libKollusSDK.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		83893FB32C50DBA600775474 /* KollusSDK */ = {
+			isa = PBXGroup;
+			children = (
+				83893FAF2C50DBA600775474 /* include */,
+				83893FB22C50DBA600775474 /* lib */,
+			);
+			path = KollusSDK;
+			sourceTree = "<group>";
+		};
 		C5340824288D4EE300236CAB /* Type */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +266,8 @@
 		DB8F9BA8246CBFF8006C6792 = {
 			isa = PBXGroup;
 			children = (
-				C58AD82E288637E6006FEF6E /* ExternalLib */,
+				83893FB62C50DBB100775474 /* PallyConFPSSDK.framework */,
+				83893FB32C50DBA600775474 /* KollusSDK */,
 				DB8F9BB3246CBFF8006C6792 /* KLS-ExamplePlayer */,
 				DB8F9BB2246CBFF8006C6792 /* Products */,
 				B731AB807F085487958C72BC /* kls-ios-swift-Bridging-Header.h */,
@@ -268,6 +333,7 @@
 				DBEE8780247E87DA00F5526F /* Foundation.framework */,
 				DBEE877E247E87D200F5526F /* UIKit.framework */,
 				DBEE877C247E87CA00F5526F /* CoreGraphics.framework */,
+				83893F9E2C50D8DF00775474 /* libKollusSDK.a */,
 				DBEE877A247E87BC00F5526F /* MediaPlayer.framework */,
 				DBEE8778247E87B100F5526F /* SystemConfiguration.framework */,
 				DBEE8776247E87A800F5526F /* Security.framework */,
@@ -292,7 +358,7 @@
 				DB8F9BAD246CBFF8006C6792 /* Sources */,
 				DB8F9BAE246CBFF8006C6792 /* Frameworks */,
 				DB8F9BAF246CBFF8006C6792 /* Resources */,
-				C58AD82C28863797006FEF6E /* Embed Frameworks */,
+				83893FBB2C50DC3F00775474 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,27 +593,33 @@
 		DB8F9BC6246CBFFC006C6792 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D87JZ6F857;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9S9454HCU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExternalLib",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/include/KollusSDK";
 				INFOPLIST_FILE = "KLS-ExamplePlayer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ExternalLib/KollusSDK/lib",
+					"$(PROJECT_DIR)/KollusSDK/lib",
+				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.millie.MillieShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ua.yanadooapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -558,27 +630,33 @@
 		DB8F9BC7246CBFFC006C6792 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D87JZ6F857;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9S9454HCU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExternalLib",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/include/KollusSDK";
 				INFOPLIST_FILE = "KLS-ExamplePlayer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ExternalLib/KollusSDK/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ExternalLib/KollusSDK/lib",
+					"$(PROJECT_DIR)/KollusSDK/lib",
+				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.millie.MillieShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ua.yanadooapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/kls-ios-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

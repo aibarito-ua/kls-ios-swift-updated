@@ -148,7 +148,7 @@ class ExamplePlayer: AbstractView {
         self._kollusPlayer?.drmDelegate = self
         self._kollusPlayer?.lmsDelegate = self
         self._kollusPlayer?.bookmarkDelegate = self
-        
+        self._kollusPlayer?.setNetworkTimeOut(5)
         
         self._playControl = PlayControl()
         self._playControl?.backgroundColor = .clear

@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     private var player : ExamplePlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
-        player = ExamplePlayer(frame: self.view.bounds, contentURL:"https://v.kr.kollus.com/si?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtYyI6W3sibWNrZXkiOiI4eXY2VHJnQiIsIm1jcGYiOiJpa3dvbnNlby1tb2JpbGUxLW5vcm1hbCJ9XSwiY3VpZCI6InRlc3QzMzMiLCJleHB0IjoxOTQyMTM2NTQ1fQ.C2a-9MZIg_mUJxc90v04A_fUDyhmbpMSVsECgF51z68&custom_key=53d759b68288316c4fe0e403702473998ec4495fc4c31a647c9cd39017d961a3")
+        player = ExamplePlayer(frame: self.view.bounds, contentURL:"http://v.kr.kollus.com/si?jwt=eyJ0eXAiOiAiSldUIiwgImFsZyI6ICJIUzI1NiJ9.eyJjdWlkIjogIjgwMDcyNDUiLCJleHB0IjogMTcyMTgxNjQyNiwibWMiOiBbeyJtY2tleSI6IjZsbExDRWNYLTEyODMzNTAiLCJtY3BmIjoidHRzY2hvb2wtcGMxLWhkIiwidGh1bWJuYWlsIjp7ImVuYWJsZSI6dHJ1ZSwidHlwZSI6InNtYWxsIn19XX0.UFs5yG-E8hZI7S0Xik-KQS-YApVkNRRH3rMkbXr-wlw&custom_key=a40b9f2869716f3c4b82c7af066468d0b973dbfd572a6c4395ad99771ff76feb&uservalue0=6228984")
         self.view.addSubview(player)
         player.translatesAutoresizingMaskIntoConstraints = false
         player.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true

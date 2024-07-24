@@ -8,19 +8,16 @@
 
 #ifndef KollusSDK_Bridge_h
 #define KollusSDK_Bridge_h
-#import "KollusBookmark.h"
-#import "KollusChat.h"
+#import "KollusSDK.h"
+#import "KollusPlayerView.h"
+#import "KollusStorage.h"
+#import "KollusStorageDelegate.h"
 #import "KollusContent.h"
-#import "KollusPlayerBookmarkDelegate.h"
 #import "KollusPlayerDelegate.h"
 #import "KollusPlayerDRMDelegate.h"
 #import "KollusPlayerLMSDelegate.h"
-
-#import "KollusPlayerView.h"
-#import "KollusSDK.h"
-#import "KollusStorage.h"
-#import "KollusStorageDelegate.h"
+#import "KollusBookmark.h"
+#import "KollusPlayerBookmarkDelegate.h"
 #import "KPSection.h"
-#import "LogUtil.h"
 #import "SubTitleInfo.h"
 #endif /* KollusSDK_Bridge_h */

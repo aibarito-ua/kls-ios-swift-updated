@@ -9,6 +9,18 @@
 import Foundation
 
 extension ExamplePlayer : KollusPlayerDelegate {
+    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, charset: UnsafeMutablePointer<CChar>!, caption: UnsafeMutablePointer<CChar>!) {
+        
+    }
+    
+    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, charsetSub: UnsafeMutablePointer<CChar>!, captionSub: UnsafeMutablePointer<CChar>!) {
+        
+    }
+    
+    func kollusPlayerView(_ view: KollusPlayerView!, bitrate: Int32) {
+        
+    }
+    
     func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, prepareToPlayWithError error: Error!) {
         if error != nil {
             NSLog("Prepared Error : %c", error.localizedDescription)
@@ -199,12 +211,6 @@ extension ExamplePlayer : KollusPlayerDelegate {
     
     func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, lockedPlayer playerType: KollusPlayerType) {
         NSLog("Lock Player : %c", String(reflecting: playerType))
-    }
-    
-    func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, charset: UnsafeMutablePointer<CChar>!, caption: UnsafeMutablePointer<CChar>!) {
-        //        let charSet = String(cString: charset)
-        let subtitle = String(cString: caption)
-        NSLog("Subtitle :\n%c", subtitle)
     }
     
     func kollusPlayerView(_ kollusPlayerView: KollusPlayerView!, thumbnail isThumbnail: Bool, error: Error!) {
